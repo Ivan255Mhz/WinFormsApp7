@@ -94,6 +94,7 @@
             buttonResult.TabIndex = 6;
             buttonResult.Text = "Регистрация";
             buttonResult.UseVisualStyleBackColor = true;
+            buttonResult.Click += buttonResult_Click;
             // 
             // buttonClear
             // 
@@ -103,6 +104,7 @@
             buttonClear.TabIndex = 7;
             buttonClear.Text = "Очистить";
             buttonClear.UseVisualStyleBackColor = true;
+            buttonClear.Click += buttonClear_Click;
             // 
             // UserFormsRegister
             // 

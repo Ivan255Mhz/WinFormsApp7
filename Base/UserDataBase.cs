@@ -8,12 +8,41 @@ namespace WinFormsApp7.Base
 {
     static public class UserDataBase
     {
-       public static List<User> Users = new List<User>();
+        public static List<User> Users = new List<User>();
 
+        public static int IdUsers = 1;
+
+
+
+        public static int GetId()
+        {
+            return IdUsers;
+        }
 
         public static void Add(User user)
         {
             Users.Add(user);
+
+            IdUsers++;
+
+        }
+
+
+        public static void Remove(User user)
+        {
+            Users.Remove(user);
+        }
+
+        public static void Clear()
+        {
+            Users.Clear();
+        }
+
+        public static User UserGetId (int id)
+        {
+            return Users[id];
         }
     }
 }
+
+    
