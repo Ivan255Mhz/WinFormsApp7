@@ -18,6 +18,7 @@ namespace WinFormsApp7.Base
 
 
         public static List<User> GetUsers()
+
         {
             return Users;
         }
