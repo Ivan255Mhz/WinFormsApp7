@@ -60,6 +60,7 @@ namespace WinFormsApp7.Forms
             var User = new User(id, Name, Email, Password);
 
             UserDataBase.Add(User);
+            UserDataBase.Save();
 
 
         }

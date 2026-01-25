@@ -7,7 +7,9 @@ namespace WinFormsApp7
     {
         public Form1()
         {
+
             InitializeComponent();
+            UserDataBase.Load();
             UpdateDataBase();
             this.FormClosing += MainFormEx;
 
