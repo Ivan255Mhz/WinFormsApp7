@@ -32,7 +32,7 @@ namespace WinFormsApp7.Base
         {
             Users.Add(user);
 
-            IdUsers++;
+            ++IdUsers;
 
         }
 
