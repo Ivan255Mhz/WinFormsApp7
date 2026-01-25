@@ -13,9 +13,14 @@ namespace WinFormsApp7.Forms
 {
     public partial class UserFormsRegister : Form
     {
-        public UserFormsRegister()
+
+
+        private Form1 parentForm;
+        public UserFormsRegister(Form1 parentForm)
         {
+            this.parentForm = parentForm;
             InitializeComponent();
+            
         }
 
         private void buttonClear_Click(object sender, EventArgs e)

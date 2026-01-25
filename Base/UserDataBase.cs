@@ -13,6 +13,10 @@ namespace WinFormsApp7.Base
         public static int IdUsers = 1;
 
 
+        public static List<User> GetUsers()
+        {
+            return Users;
+        }
 
         public static int GetId()
         {

@@ -30,20 +30,22 @@
         {
             button1 = new Button();
             button2 = new Button();
+            listBoxUsers = new ListBox();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(133, 276);
+            button1.Location = new Point(121, 575);
             button1.Name = "button1";
             button1.Size = new Size(229, 96);
             button1.TabIndex = 0;
             button1.Text = "Войти";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(410, 276);
+            button2.Location = new Point(449, 575);
             button2.Name = "button2";
             button2.Size = new Size(229, 96);
             button2.TabIndex = 1;
@@ -51,11 +53,21 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // listBoxUsers
+            // 
+            listBoxUsers.FormattingEnabled = true;
+            listBoxUsers.ItemHeight = 37;
+            listBoxUsers.Location = new Point(12, 12);
+            listBoxUsers.Name = "listBoxUsers";
+            listBoxUsers.Size = new Size(776, 522);
+            listBoxUsers.TabIndex = 2;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 728);
+            Controls.Add(listBoxUsers);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
@@ -67,5 +79,6 @@
 
         private Button button1;
         private Button button2;
+        private ListBox listBoxUsers;
     }
 }
