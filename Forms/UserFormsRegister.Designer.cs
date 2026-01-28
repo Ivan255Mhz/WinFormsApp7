@@ -36,6 +36,8 @@
             textBoxPassword = new TextBox();
             buttonResult = new Button();
             buttonClear = new Button();
+            comboBoxRole = new ComboBox();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -88,7 +90,7 @@
             // 
             // buttonResult
             // 
-            buttonResult.Location = new Point(47, 376);
+            buttonResult.Location = new Point(47, 463);
             buttonResult.Name = "buttonResult";
             buttonResult.Size = new Size(169, 52);
             buttonResult.TabIndex = 6;
@@ -98,7 +100,7 @@
             // 
             // buttonClear
             // 
-            buttonClear.Location = new Point(317, 376);
+            buttonClear.Location = new Point(317, 463);
             buttonClear.Name = "buttonClear";
             buttonClear.Size = new Size(169, 52);
             buttonClear.TabIndex = 7;
@@ -106,11 +108,30 @@
             buttonClear.UseVisualStyleBackColor = true;
             buttonClear.Click += buttonClear_Click;
             // 
+            // comboBoxRole
+            // 
+            comboBoxRole.FormattingEnabled = true;
+            comboBoxRole.Location = new Point(143, 327);
+            comboBoxRole.Name = "comboBoxRole";
+            comboBoxRole.Size = new Size(343, 45);
+            comboBoxRole.TabIndex = 8;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(22, 335);
+            label4.Name = "label4";
+            label4.Size = new Size(76, 37);
+            label4.TabIndex = 9;
+            label4.Text = "Роль";
+            // 
             // UserFormsRegister
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(514, 515);
+            ClientSize = new Size(514, 632);
+            Controls.Add(label4);
+            Controls.Add(comboBoxRole);
             Controls.Add(buttonClear);
             Controls.Add(buttonResult);
             Controls.Add(textBoxPassword);
@@ -135,5 +156,7 @@
         private TextBox textBoxPassword;
         private Button buttonResult;
         private Button buttonClear;
+        private ComboBox comboBoxRole;
+        private Label label4;
     }
 }

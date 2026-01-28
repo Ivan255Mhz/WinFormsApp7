@@ -20,6 +20,7 @@ namespace WinFormsApp7.Forms
         {
             this.parentForm = parentForm;
             InitializeComponent();
+            comboBoxRole.Items.AddRange(new string[] {"Админ","Работник","Пользователь"});
             
         }
 
