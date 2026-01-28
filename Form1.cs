@@ -7,7 +7,16 @@ namespace WinFormsApp7
     {
         public Form1()
         {
+
             InitializeComponent();
+            UserDataBase.Load();
+
+            if(UserDataBase.GetUsers() is null)
+            {
+                UserDataBase.Users = new List<User>();
+            }
+
+
             UpdateDataBase();
             this.FormClosing += MainFormEx;
 
@@ -36,6 +45,11 @@ namespace WinFormsApp7
 
         private void UpdateDataBase()
         {
+            if (UserDataBase.GetUsers() is null) 
+            {
+                return;
+            }
+
             listBoxUsers.Items.Clear();
             listBoxUsers.Items.AddRange(UserDataBase.GetUsers().ToArray());
         }

@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WinFormsApp7.Interfase;
+using WinFormsApp7.JsonServise;
 
 namespace WinFormsApp7.Base
 {
-    static public class UserDataBase
+    static public class UserDataBase 
     {
         public static List<User> Users = new List<User>();
 
         public static int IdUsers = 1;
 
+        private static JsonSerServise JsonServise = new JsonSerServise();
+
 
         public static List<User> GetUsers()
+
         {
             return Users;
         }
@@ -27,7 +32,7 @@ namespace WinFormsApp7.Base
         {
             Users.Add(user);
 
-            IdUsers++;
+            ++IdUsers;
 
         }
 
@@ -46,6 +51,23 @@ namespace WinFormsApp7.Base
         {
             return Users[id];
         }
+
+        public static void Save()
+        {
+
+            JsonServise.SaveToFile("json.json", Users);
+
+            
+
+        }
+
+        public static void Load()
+        {
+
+            Users = JsonServise.LoadFormFile<List<User>>("json.json");
+
+        }
+
     }
 }
 
