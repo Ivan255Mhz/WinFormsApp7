@@ -56,9 +56,11 @@ namespace WinFormsApp7.Forms
             string Name = textBoxName.Text;
             string Email = textBoxEmail.Text;
             string Password = textBoxPassword.Text;
+            Rols rols = (Rols)comboBoxRole.SelectedIndex;
+            
 
 
-            var User = new User(id, Name, Email, Password);
+            var User = new User(id, Name, Email, Password, rols);
 
             UserDataBase.Add(User);
             UserDataBase.Save();
