@@ -18,6 +18,7 @@ namespace WinFormsApp7.Class
 
         public string Text { get; set; }
 
+
         public override string ToString()
         {
             return Name; 

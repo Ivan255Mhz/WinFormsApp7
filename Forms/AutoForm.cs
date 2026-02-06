@@ -54,8 +54,15 @@ namespace WinFormsApp7.Forms
                 return;
             }
 
-            MessageBox.Show("Авторизация пройдена");
-            return;
+            switch (User.rols)
+            {
+                case 0:
+                    this.Hide();
+                    var form = new AdminForms(this);
+                    form.ShowDialog();
+                    this.Show();
+                    break;
+            }
 
 
         }
