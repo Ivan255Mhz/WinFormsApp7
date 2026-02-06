@@ -56,7 +56,7 @@ namespace WinFormsApp7.Base
         public static void Save()
         {
 
-            JsonServise.SaveToFile("json.json", Users);
+            JsonServise.SaveToFile("users.json", Users);
 
             
 
@@ -65,7 +65,7 @@ namespace WinFormsApp7.Base
         public static void Load()
         {
 
-            Users = JsonServise.LoadFormFile<List<User>>("json.json");
+            Users = JsonServise.LoadFormFile<List<User>>("users.json");
 
         }
 
