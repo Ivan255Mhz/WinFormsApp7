@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WinFormsApp7.Class;
+
 
 namespace WinFormsApp7
 {
@@ -30,6 +32,8 @@ namespace WinFormsApp7
         public string password { get; set; }
 
         public Rols rols { get; set; }
+
+        public List<Book> books { get; set; }
 
         public override string ToString() 
         {

@@ -32,6 +32,16 @@ namespace WinFormsApp7.Forms
             textBoxPassword.Text = string.Empty;
         }
 
+        private void CallingTheForm(Form form)
+        {
+            if (form is null)
+                return;
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
+        }
+
+
         private void buttonIN_Click(object sender, EventArgs e)
         {
             string email = textBoxEmail.Text;
@@ -56,15 +66,19 @@ namespace WinFormsApp7.Forms
 
             switch (User.rols)
             {
-                case 0:
-                    this.Hide();
-                    var form = new AdminForms(this);
-                    form.ShowDialog();
-                    this.Show();
+                case Rols.Admin:
+                    var admin = new AdminForms(this);
+                    CallingTheForm(admin);
+                    break;
+                case Rols.Worker:
+                    var worker = new WorkerForm(this);
+                    CallingTheForm(worker);
                     break;
             }
 
 
         }
+
+        
     }
 }
