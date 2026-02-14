@@ -69,6 +69,12 @@ namespace WinFormsApp7.Base
 
         }
 
+
+        public static List<User> GetCliens() 
+        { 
+            return Users.Where(u=> u.rols==Rols.Player).ToList();
+        }
+
     }
 }
 

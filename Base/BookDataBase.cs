@@ -15,7 +15,10 @@ namespace WinFormsApp7.Base
 
         private static JsonSerServise JsonServis = new ();
 
-
+        public static void RefBook(Book book,int i)
+        {
+            Books[i] = book;
+        }
         public static  List<Book> GetBooks()
         {
             return Books;
