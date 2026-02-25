@@ -18,6 +18,11 @@ namespace WinFormsApp7.Base
             loans.Add(new Loan { UserId = userId, BookId = bookId });
         }
 
+
+
+
+
+
         public static bool IsBookLoaned(int bookId) =>
             loans.Any(l => l.BookId == bookId && l.ReturnDate == null);
 

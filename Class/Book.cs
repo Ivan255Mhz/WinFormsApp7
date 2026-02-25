@@ -8,6 +8,9 @@ namespace WinFormsApp7.Class
 {
     public class Book
     {
+
+
+
         public Book(string name, string text)
         {
             Name = name;
