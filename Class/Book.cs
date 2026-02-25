@@ -13,6 +13,7 @@ namespace WinFormsApp7.Class
             Name = name;
             Text = text;
         }
+        public int Id {  get; set; }
 
         public string Name { get; set; }
 

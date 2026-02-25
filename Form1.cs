@@ -9,16 +9,16 @@ namespace WinFormsApp7
         {
 
             InitializeComponent();
-            UserDataBase.Load();
 
-            if(UserDataBase.GetUsers() is null)
+            try 
             {
-                UserDataBase.Users = new List<User>();
+                UserDataBase.Load();
+                BookDataBase.Load();
+                LoanDataBase,
             }
 
 
-            UpdateDataBase();
-            this.FormClosing += MainFormEx;
+            
 
         }
 

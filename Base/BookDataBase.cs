@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using WinFormsApp7.Class;
 using WinFormsApp7.JsonServise;
 
@@ -10,44 +8,37 @@ namespace WinFormsApp7.Base
 {
     public static class BookDataBase
     {
+        private static List<Book> Books = new();
+        private static int nextBookId = 1;
+        private static readonly JsonSerServise jsonService = new();
 
-        private static List<Book>  Books= new ();
+        public static ReadOnlyCollection<Book> GetBooks() => new ReadOnlyCollection<Book>(Books);
 
-        private static JsonSerServise JsonServis = new ();
-
-        public static void RefBook(Book book,int i)
+        public static void UpdateBookAt(int index, Book book)
         {
-            Books[i] = book;
-        }
-        public static  List<Book> GetBooks()
-        {
-            return Books;
-        }
-
-        public static void Add (Book book) 
-        {
-            Books.Add (book);
+            if (book == null) throw new ArgumentNullException(nameof(book));
+            if (index < 0 || index >= Books.Count)
+                throw new ArgumentOutOfRangeException(nameof(index));
+            Books[index] = book;
         }
 
-        public static void Remove(Book book) 
+        public static void Add(Book book)
         {
-            Books.Remove (book);
+            if (book == null) throw new ArgumentNullException(nameof(book));
+            book.Id = nextBookId++;
+            Books.Add(book);
         }
 
-        public static void Clear()
-        {
-            Books.Clear();
-        }
+        public static bool Remove(Book book) => book != null && Books.Remove(book);
+        public static void Clear() { Books.Clear(); nextBookId = 1; }
 
-        public static void Save() 
-        {
-            JsonServis.SaveToFile("books.json", Books);
-        }
-
+        public static void Save() => jsonService.SaveToFile("books.json", Books);
 
         public static void Load()
         {
-            Books = JsonServis.LoadFormFile<List<Book>>("books.json");
+            var loaded = jsonService.LoadFormFile<List<Book>>("books.json");
+            Books = loaded ?? new List<Book>();
+            nextBookId = Books.Count > 0 ? Books.Max(b => b.Id) + 1 : 1;
         }
     }
 }

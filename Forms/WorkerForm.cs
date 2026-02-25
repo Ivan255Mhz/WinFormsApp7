@@ -59,7 +59,7 @@ namespace WinFormsApp7.Forms
             listBoxBook.Items.Clear();
             listBoxBook.Items.AddRange(BookDataBase.GetBooks().ToArray());
             listBoxClients.Items.Clear();
-            listBoxClients.Items.AddRange(UserDataBase.GetCliens().ToArray());
+            listBoxClients.Items.AddRange(UserDataBase.GetCliens(u.rols = Rols.Player).ToArray());
         }
 
 
