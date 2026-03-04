@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp7.Base;
@@ -18,12 +19,19 @@ namespace WinFormsApp7.Forms
         public AutoForm(Form1 parent)
         {
             InitializeComponent();
-            _parent = parent;
+            _parent = parent ?? throw new ArgumentException(nameof(parent));
+            textBoxPassword.PasswordChar = '*';
         }
+
+        private bool IsValidEmail(string email) =>
+            !string.IsNullOrWhiteSpace(email) &&
+            Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -47,20 +55,20 @@ namespace WinFormsApp7.Forms
             string email = textBoxEmail.Text;
             string password = textBoxPassword.Text;
 
-            if (string.IsNullOrEmpty(email)||string.IsNullOrEmpty(password)) 
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Введите  email или пароль", "Ошибка", 
+                MessageBox.Show("Введите  email или пароль", "Ошибка",
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             var User = UserDataBase.GetUsers().
-                                    Where(x=> x.email== email && x.password == password).
+                                    Where(x => x.email == email && x.password == password).
                                     FirstOrDefault();
 
-            if(User is null)
+            if (User is null)
             {
-                MessageBox.Show("Пользавотель не найден", "Ошибка",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Пользавотель не найден", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -79,6 +87,9 @@ namespace WinFormsApp7.Forms
 
         }
 
-        
+        private void AutoForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

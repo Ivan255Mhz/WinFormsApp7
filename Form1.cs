@@ -10,12 +10,28 @@ namespace WinFormsApp7
 
             InitializeComponent();
 
-            try 
+            try
             {
                 UserDataBase.Load();
                 BookDataBase.Load();
-                LoanDataBase,
+                LoanDataBase.Load();
             }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки данных { ex.Message}","Ошибка",MessageBoxButtons.OK);
+
+                if (UserDataBase.GetUsers() is null)
+                    UserDataBase.Clear();
+                if(BookDataBase.GetBooks() is null)
+                    BookDataBase.Clear();
+                LoanDataBase.Clear();
+            }
+
+            if (UserDataBase.GetUsers() is null)
+                UserDataBase.Clear();
+
+            UpdateDataBase();
 
 
             
@@ -45,13 +61,10 @@ namespace WinFormsApp7
 
         private void UpdateDataBase()
         {
-            if (UserDataBase.GetUsers() is null) 
-            {
-                return;
-            }
-
             listBoxUsers.Items.Clear();
-            listBoxUsers.Items.AddRange(UserDataBase.GetUsers().ToArray());
+            var users = UserDataBase.GetUsers();
+            if(users != null)
+                listBoxUsers.Items.AddRange(users.ToArray());
         }
 
         private void button1_Click(object sender, EventArgs e)

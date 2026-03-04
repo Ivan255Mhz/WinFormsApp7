@@ -19,7 +19,7 @@ namespace WinFormsApp7.Base
 
 
 
-        private static ReadOnlyCollection<User> GetUsers() => new ReadOnlyCollection<User>(Users);
+        public static ReadOnlyCollection<User> GetUsers() => new ReadOnlyCollection<User>(Users);
 
         public static int GetNextAvailable() => nextUserId;
 
